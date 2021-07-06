@@ -13,7 +13,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
   }
 
   validate(url) {
-    if (typeof url !== "string" || !url.includes("tidal") || !SUPPORTED_TYPES.some(type => url.includes(type))) return false;
+    if (typeof url !== "string" || !url.includes("tidal") || !SUPPORTED_TYPES.some(typ => url.includes(typ))) return false;
     if (!urlRegex.test(url)) return false;
     return true;
   }
@@ -37,6 +37,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
     } else {
       let rawData;
       let tracksData;
+      let type;
       if (url.includes("artist")) {
         rawData = await tidal.getArtist(urlId);
         const albums = await tidal.getArtistAlbums(urlId);
