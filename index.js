@@ -14,7 +14,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
 
   validate(url) {
     if (typeof url !== "string" || !url.includes("tidal") || !SUPPORTED_TYPES.some(typ => url.includes(typ))) return false;
-    if (!urlRegex.test(url)) return false;
+   // if (!urlRegex.test(url)) return false;
     return true;
   }
 
@@ -111,7 +111,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
 const resolvePlaylist = (rawData, tracksData, type, member) => {
   const songs = tracksData.map(item => {
     const track = item;
-    if (track.type !== "track") return null;
+    if (!track.url.includes("track")) return null;
     return `${track.title} ${track.artists.map(c => c.name).join(" ")}`;
   }).filter(Boolean);
   if (!songs.length) throw new Error(`[TidalPlugin] \`${rawData.title}\` does not contains any tracks.`);
