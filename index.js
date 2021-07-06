@@ -27,7 +27,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
       let data;
       if (url.includes("tracks")) {
         data = await tidal.getTrack(urlId);
-      } else if (url.includes("tracks")) {
+      } else if (url.includes("video")) {
         data = await tidal.getVideo(urlId);
       }
       const query = `${data.title} ${data.artists.map(c => c.name).join(" ")}`;
