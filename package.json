@@ -1,0 +1,40 @@
+{
+  "name": "distube-tidal",
+  "version": "0.0.1-beta",
+  "description": "A DisTube custom plugin for supporting Tidal.",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L0SER8228/distube-tidal.git"
+  },
+  "keywords": [
+    "distube",
+    "plugin",
+    "tidal",
+    "discord",
+    "music"
+  ],
+  "author": "L0SER8228",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/L0SER8228/distube-tidal/issues"
+  },
+  "homepage": "https://github.com/L0SER8228/distube-tidal#readme",
+  "devDependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "discord.js": "github:discordjs/discord.js",
+    "distube": "^3.0.0-alpha.9",
+    "eslint": "^7.30.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@dastormer/tidal-api-wrapper": "^1.8.0"
+  },
+  "peerDependencies": {
+    "distube": "3||^3.0.0-0"
+  }
+}
