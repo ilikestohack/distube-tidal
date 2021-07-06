@@ -54,7 +54,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
         type = "playlist";
       }
 
-      const playlist = resolvePlaylist(rawData, tracksData, thumbType, member);
+      const playlist = resolvePlaylist(rawData, tracksData, type, member);
       let firstSong;
       while (!firstSong && playlist.songs.length) {
         const result = await this.search(playlist.songs.shift());
