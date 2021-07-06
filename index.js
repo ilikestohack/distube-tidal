@@ -3,6 +3,7 @@ const tidal = new Tidal();
 const { CustomPlugin, Song, Playlist } = require("distube");
 const SITE_URL = "https:\/\/www.tidal.com\/";
 const SUPPORTED_TYPES = ["album", "playlist", "track", "video"];
+const urlRegex = /^https?:\/\/(?:www\.)?tidal\.com\/(track|video|artist|album|playlist)\/(\d+)$/;
 
 module.exports = class TidalPlugin extends CustomPlugin {
   constructor(options = {}) {
@@ -13,6 +14,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
 
   validate(url) {
     if (typeof url !== "string" || !url.includes("tidal") || !SUPPORTED_TYPES.some(type => url.includes(type))) return false;
+    if (!urlRegex.test(url)) return false;
     return true;
   }
 
