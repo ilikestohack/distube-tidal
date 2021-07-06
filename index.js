@@ -2,7 +2,7 @@ const Tidal = require("@dastormer/tidal-api-wrapper");
 const tidal = new Tidal();
 const { CustomPlugin, Song, Playlist } = require("distube");
 const SITE_URL = "https:\/\/www.tidal.com\/";
-const SUPPORTED_TYPES = ["album", "playlist", "track", "video"];
+const SUPPORTED_TYPES = ["album", "playlist", "track", "video", "artist"];
 const urlRegex = /^https?:\/\/(?:www\.)?tidal\.com\/(track|video|artist|album|playlist)\/(\d+)$/;
 
 module.exports = class TidalPlugin extends CustomPlugin {
