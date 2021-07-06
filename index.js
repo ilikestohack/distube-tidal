@@ -23,9 +23,9 @@ module.exports = class TidalPlugin extends CustomPlugin {
     let urlId = url.split("/");
     urlId = urlId[urlId.length - 1];
 
-    if (url.includes("tracks") || url.includes("video")) {
+    if (url.includes("track") || url.includes("video")) {
       let data;
-      if (url.includes("tracks")) {
+      if (url.includes("track")) {
         data = await tidal.getTrack(urlId);
       } else if (url.includes("video")) {
         data = await tidal.getVideo(urlId);
