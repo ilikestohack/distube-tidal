@@ -119,9 +119,9 @@ const resolvePlaylist = (rawData, tracksData, type, member) => {
   if (type === "artist") {
     thumb = tidal.artistPicToUrl(rawData.picture);
   } else if (type === "album") {
-    thumb = tidal.albumArtToUr(rawData.cover);
+    thumb = tidal.albumArtToUrl(rawData.cover);
   } else if (type === "playlist") {
-    thumb = tidal.albumArtToUr(rawData.image);
+    thumb = tidal.albumArtToUrl(rawData.image);
   }
 
   return new Playlist({
