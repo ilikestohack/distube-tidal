@@ -14,7 +14,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
 
   validate(url) {
     if (typeof url !== "string" || !url.includes("tidal") || !SUPPORTED_TYPES.some(typ => url.includes(typ))) return false;
-    // if (!urlRegex.test(url)) return false;
+    if (!urlRegex.test(url)) return false;
     return true;
   }
 
