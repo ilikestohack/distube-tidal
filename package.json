@@ -1,6 +1,6 @@
 {
   "name": "distube-tidal",
-  "version": "0.0.1-beta",
+  "version": "0.1.0-beta",
   "description": "A DisTube custom plugin for supporting Tidal.",
   "main": "index.js",
   "typings": "index.d.ts",
