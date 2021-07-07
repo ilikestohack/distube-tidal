@@ -53,6 +53,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
         tracksData = await tidal.getPlaylistTracks(urlId);
         type = "playlist";
       }
+      if (!rawData || !tracksData) throw new Error(`[TidalPlugin] Cannot find any data for "${url}" on Tidal.`);
 
       const playlist = resolvePlaylist(rawData, tracksData, type, member);
       let firstSong;
