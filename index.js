@@ -14,7 +14,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
 
   validate(url) {
     if (typeof url !== "string" || !url.includes("tidal") || !SUPPORTED_TYPES.some(typ => url.includes(typ))) return false;
-   // if (!urlRegex.test(url)) return false;
+    // if (!urlRegex.test(url)) return false;
     return true;
   }
 
@@ -41,7 +41,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
       if (url.includes("artist")) {
         rawData = await tidal.getArtist(urlId);
         const albums = await tidal.getArtistAlbums(urlId);
-        const promises = albums.map(async (album )=> await tidal.getAlbumTracks(album.id));
+        const promises = albums.map(async (album) => await tidal.getAlbumTracks(album.id));
         tracksData = await Promise.all(promises);
         type = "artist";
       } else if (url.includes("album")) {
