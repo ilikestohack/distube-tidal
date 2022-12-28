@@ -35,6 +35,6 @@
     "@dastormer/tidal-api-wrapper": "^1.8.0"
   },
   "peerDependencies": {
-    "distube": "3||^3.0.0-0"
+    "distube": "^4.0.0"
   }
 }
