@@ -2,8 +2,8 @@ const Tidal = require("@dastormer/tidal-api-wrapper");
 const tidal = new Tidal();
 const { CustomPlugin, Song, Playlist } = require("distube");
 const SITE_URL = "https:\/\/www.tidal.com\/";
-const SUPPORTED_TYPES = ["album", "playlist", "track", "video", "artist"];
-const urlRegex = /^(https?:\/\/)?(?:www\.)?tidal\.com\/(browse\/)?(track|video|artist|album|playlist)\/(.*?)$/gm;
+const SUPPORTED_TYPES = ["album", "playlist", "track", "video", "artist", "mix"];
+const urlRegex = /^(https?:\/\/)?(?:www\.)?tidal\.com\/(browse\/)?(track|video|artist|album|playlist|mix)\/(.*?)$/gm;
 
 module.exports = class TidalPlugin extends CustomPlugin {
   constructor(options = {}) {
@@ -53,9 +53,12 @@ module.exports = class TidalPlugin extends CustomPlugin {
         rawData = await tidal.getPlaylist(urlId);
         tracksData = await tidal.getPlaylistTracks(urlId);
         type = "playlist";
+      } else if (url.includes("mix")){
+        rawData = await tidal.getMix(urlId);
+        tracksData = await tidal.getMixTracks(urlId);
+        type = "mix"
       }
       if (!rawData || !tracksData) throw new Error(`[TidalPlugin] Cannot find any data for "${url}" on Tidal.`);
-
       const playlist = resolvePlaylist(rawData, tracksData, type, member);
       let firstSong;
       while (!firstSong && playlist.songs.length) {
@@ -124,6 +127,8 @@ const resolvePlaylist = (rawData, tracksData, type, member) => {
     thumb = tidal.albumArtToUrl(rawData.cover);
   } else if (type === "playlist") {
     thumb = tidal.albumArtToUrl(rawData.image);
+  }else if(type === "mix"){
+    thumb = tidal.getMixArt(rawData.uuid);
   }
 
   return new Playlist({

@@ -33,7 +33,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@dastormer/tidal-api-wrapper": "^1.8.0"
+    "tidal-api-wrapper": "https://github.com/ilikestohack/tidal-api"
   },
   "peerDependencies": {
     "distube": "^4.0.0"
