@@ -5,7 +5,8 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prettier": "prettier . -w"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,8 @@
   "homepage": "https://github.com/L0SER8228/distube-tidal#readme",
   "devDependencies": {
     "@discordjs/opus": "^0.5.3",
-    "discord.js": "github:discordjs/discord.js",
-    "distube": "^3.0.0-alpha.9",
+    "discord.js": "^14.7.1",
+    "distube": "^4.0.0",
     "eslint": "^7.30.0",
     "typescript": "^4.3.5"
   },
