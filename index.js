@@ -1,4 +1,4 @@
-const Tidal = require("@dastormer/tidal-api-wrapper");
+const Tidal = require("tidal-api-wrapper");
 const tidal = new Tidal();
 const { CustomPlugin, Song, Playlist } = require("distube");
 const SITE_URL = "https:\/\/www.tidal.com\/";
