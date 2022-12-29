@@ -33,7 +33,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
       const query = `${data.title} ${data.artists.map(c => c.name).join(" ")}`;
       const result = await this.search(query);
       if (!result) throw new Error(`[TidalPlugin] Cannot find "${query}" on YouTube.`);
-      await DT.playVoiceChannel(voiceChannel, result, { member, textChannel, skip });
+      await DT.play(voiceChannel, result, { member, textChannel, skip });
     } else {
       let rawData;
       let tracksData;
