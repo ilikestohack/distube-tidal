@@ -64,7 +64,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
       while (!firstSong && playlist.songs.length) {
         const result = await this.search(playlist.songs.shift());
         if (!result) continue;
-        firstSong = new Song(result, member)._patchPlaylist(playlist);
+        firstSong = new Song(result, { member });
       }
 
       if (!firstSong && !playlist.songs.length) throw new Error(`[TidalPlugin] Cannot find any tracks of "${playlist.name}" on YouTube.`);
@@ -80,7 +80,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
             }
           }
           playlist.songs = playlist.songs.filter(r => r)
-            .map(r => new Song(r, member)._patchPlaylist(playlist));
+            .map(r => new Song(r, { member }));
           queue.addToQueue(playlist.songs, skip ? 1 : unshift ? 2 : -1);
         }
         playlist.songs.unshift(firstSong);
