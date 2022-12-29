@@ -132,6 +132,7 @@ const resolvePlaylist = (rawData, tracksData, type, member) => {
   }
 
   return new Playlist({
+    source: "distube-tidal",
     name: rawData.title,
     thumbnail: thumb.xl || thumb.lg || thumb.md || thumb.sm || "",
     url: rawData.url || `${SITE_URL}${type}\/${rawData.id || rawData.uuid}` || "",
