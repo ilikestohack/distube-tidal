@@ -133,7 +133,7 @@ const resolvePlaylist = (rawData, tracksData, type, member) => {
 
   return new Playlist({
     name: rawData.title,
-    thumbnail: thumb.xl || thumb.lg || thum.md || thum.sm || "",
+    thumbnail: thumb.xl || thumb.lg || thumb.md || thumb.sm || "",
     url: rawData.url || `${SITE_URL}${type}\/${rawData.id || rawData.uuid}` || "",
     songs
   }, member);
