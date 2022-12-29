@@ -18,7 +18,7 @@ module.exports = class TidalPlugin extends CustomPlugin {
     return true;
   }
 
-  async play(voiceChannel, url, member, textChannel, skip, unshift) {
+  async play(voiceChannel, url, { member, textChannel, skip, unshift }) {
     const DT = this.distube;
     let urlId = url.split("/");
     urlId = urlId[urlId.length - 1];
